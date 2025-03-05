@@ -1,14 +1,14 @@
 import 'package:b2w/core/extentions/num.dart';
 import 'package:b2w/core/extentions/string.dart';
 import 'package:b2w/core/route_Units/route_units.dart';
-import 'package:b2w/views/forgort_password/forgot_password.dart';
+import 'package:b2w/views/forgort_password/forget_pass_screen.dart';
+import 'package:b2w/views/select_screen/select-screen.dart';
 import 'package:b2w/views/sign_up/sign_up_screen.dart';
 import 'package:b2w/widget/app/app_buttons.dart';
 import 'package:b2w/widget/app/app_text-field.dart';
 import 'package:b2w/widget/app/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../core/utils/colors.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -25,13 +25,34 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-            
-                  width: double.infinity,
-                  height: 294.height,
-                  child: Image.asset(
-                    'Rectangle 1'.assetPNG,
-                  ),
+                Stack(
+                  children: [
+
+                    Container(
+                      width: 395.w,
+                      height: 194.h,
+
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.r)),
+
+                      ),
+                      child: Image.asset('Rectangle 1'.assetPNG,
+                        width: 395.w,
+                        height: 194.h,
+                        fit: BoxFit.fill,
+
+
+                      ),
+                    ),
+                    Positioned(
+                      top: 141,
+                        left: 169 ,
+                        child: Image.asset('logo1'.assetPNG,
+                        width: 55.w,
+                        height: 48.h,))
+
+                  ],
+
                   ),
                 SizedBox(
                   height: 8.h,
@@ -51,10 +72,22 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: 8.h,
                       ),
-                      AppTextField
-                        (hint: 'Example@gmail.com',
+                      AppTextField(
+                        hint: 'Example@gmail.com',
                         label: 'Email Address ' ,
                         keyboardType: TextInputType.emailAddress,
+
+                        validator: (value)
+                        {
+                          if (value!.isEmpty)
+                          {
+                            return 'email must not be empty';
+
+                          }
+                          return null;
+
+                        },
+
                         ),
                       SizedBox(
                         height: 8.h,
@@ -63,8 +96,19 @@ class LoginScreen extends StatelessWidget {
                         (
                         label: 'Password',
                         secure: true,
-                        hint: '*******',
-                        keyboardType: TextInputType.visiblePassword,
+                        hint: '*******', keyboardType: TextInputType.visiblePassword,
+
+
+                        validator: (value)
+                        {
+                          if (value!.isEmpty)
+                          {
+                            return 'password must not be empty';
+
+                          }
+                          return null;
+
+                        },
                       ),
                       Align(
                         alignment: Alignment.centerRight,
@@ -73,7 +117,7 @@ class LoginScreen extends StatelessWidget {
                           color:AppColors.grey ,
                         fontSize: 14,
                         decoration: TextDecoration.underline,
-                          onTap: ()=>RouteUtils.pushAndRemoveAll(context,forgotPassword()),
+                          onTap: ()=>RouteUtils.pushAndRemoveAll(context,ForgotPasswordScreen()),
                         ),
                       ),
                       SizedBox(
@@ -82,6 +126,7 @@ class LoginScreen extends StatelessWidget {
                       AppButton(title: 'Log in',
                           onTap: (){
                         formKey.currentState!.validate();
+
                           },
                       ),
                      SizedBox(
@@ -165,6 +210,11 @@ class LoginScreen extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                             ),
                             onTap: (){
+                              if (formKey.currentState!.validate())
+                              {
+
+
+                              }
                               RouteUtils.pushAndRemoveAll(context, SignUpScreen());
                             },
                           ),

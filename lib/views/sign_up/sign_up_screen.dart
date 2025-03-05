@@ -4,10 +4,11 @@ import 'package:b2w/views/Login/login_screen.dart';
 import 'package:b2w/widget/app/app_text-field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../core/route_Units/route_units.dart';
 import '../../core/utils/colors.dart';
+import '../../widget/app/app_buttons.dart';
 import '../../widget/app/app_text.dart';
+import '../select_screen/select-screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen ({super.key});
@@ -20,12 +21,35 @@ class SignUpScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              Container(
-                width: double.infinity,
-                height: 294.h,
-                child: Image.asset(
-                  'Rectangle 2'.assetPNG,
-                ),
+
+              Stack(
+
+                children: [
+                  Container(
+                    width:395.w,
+                    height: 194.h,
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20.r)),
+
+                    ),
+                    child: Image.asset('Rectangle 2'.assetPNG,
+                      width: 395.w,
+                      height: 194.h,
+                      fit: BoxFit.fill,
+
+                    ),
+                  ),
+
+                  Positioned(
+                      top: 141,
+                      left: 169 ,
+                      child: Image.asset('logo1'.assetPNG,
+                        width: 55.w,
+                        height: 48.h,))
+
+                ],
+
               ),
               SizedBox(
                 height: 8.h,
@@ -56,8 +80,20 @@ class SignUpScreen extends StatelessWidget {
                             child: AppTextField(
                               hint: 'first name',
                               label: 'First Name',
-                              width: 170.w,
                               keyboardType: TextInputType.text,
+                              width: 170.w,
+
+                              validator: (value)
+                              {
+                                if (value!.isEmpty)
+                                {
+                                  return 'Name must not be empty';
+
+                                }
+                                return null;
+
+                              },
+
                             ),
                           ),
                           SizedBox(
@@ -67,8 +103,19 @@ class SignUpScreen extends StatelessWidget {
                             child: AppTextField(
                               hint: 'last name',
                               label: 'Last Name',
-                              width: 170.w,
                               keyboardType: TextInputType.text,
+                              width: 170.w,
+                              validator: (value)
+                              {
+                                if (value!.isEmpty)
+                                {
+                                  return ' Name must not be empty';
+
+                                }
+                                return null;
+
+                              },
+
                             ),
                           ),
                         ],
@@ -80,7 +127,16 @@ class SignUpScreen extends StatelessWidget {
                         (hint: 'Example@gmail.com',
                         label: 'Email Address ' ,
                         keyboardType: TextInputType.emailAddress,
+                        validator: (value)
+                        {
+                          if (value!.isEmpty)
+                          {
+                            return 'email must not be empty';
 
+                          }
+                          return null;
+
+                        },
                       ),
                       SizedBox(
                         height: 8.h,
@@ -91,9 +147,26 @@ class SignUpScreen extends StatelessWidget {
                         secure: true,
                         hint: '*******',
                         keyboardType: TextInputType.visiblePassword,
+                        validator: (value)
+                        {
+                          if (value!.isEmpty)
+                          {
+                            return 'password must not be empty';
+
+                          }
+                          return null;
+
+                        },
+
                       ),
                       SizedBox(
                         height: 8.h ,
+                      ),
+                      AppButton(title: 'Sign up',
+                        onTap: (){
+                          formKey.currentState!.validate();
+                          RouteUtils.push(context, SelectScreen());
+                        },
                       ),
                       SizedBox(
                         height: 8.h,
@@ -176,6 +249,11 @@ class SignUpScreen extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                             ),
                             onTap: (){
+                              if (formKey.currentState!.validate())
+                              {
+
+
+                              }
                               RouteUtils.pushAndRemoveAll(context, LoginScreen());
                             },
                           ),

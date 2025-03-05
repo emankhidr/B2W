@@ -127,7 +127,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 AppButton(title: 'Continue',
                   onTap: (){
-                    nextPage.animateToPage(1, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                    nextPage.animateToPage(1, duration: Duration(milliseconds: 300), curve: Curves.ease);
                   },
                 ),
 
@@ -172,7 +172,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 AppButton(title: 'Continue',
                   onTap: (){
-                    nextPage.animateToPage(2, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                    nextPage.animateToPage(2, duration: Duration(milliseconds: 300), curve: Curves.ease);
                   },
                 ),
 
@@ -215,7 +215,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 AppButton(title: 'Continue',
                   onTap: (){
-                  nextPage.animateToPage(3, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                  nextPage.animateToPage(3, duration: Duration(milliseconds: 300), curve: Curves.ease);
                   },
                 ),
               ],

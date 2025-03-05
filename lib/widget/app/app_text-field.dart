@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,13 +7,16 @@ import 'app_text.dart';
 class AppTextField extends StatefulWidget {
   const AppTextField({
     Key? key,
-     this.label,
+    this.label,
     this.hint,
-    this.keyboardType,
     this.width,
     this.validator,
     this.secure = false,
     this.leading,
+    this.keyboardType,
+
+
+
   }) : super(key: key);
 
   final String? label;
@@ -23,7 +25,10 @@ class AppTextField extends StatefulWidget {
   final bool secure;
   final Widget? leading;
   final double? width;
-  final  keyboardType;
+  final keyboardType;
+
+
+
 
 
   @override
@@ -41,6 +46,7 @@ class _AppTextFieldState extends State<AppTextField> {
 
   @override
   Widget build(BuildContext context) {
+    var type;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -58,7 +64,7 @@ class _AppTextFieldState extends State<AppTextField> {
         TextFormField(
           cursorColor: AppColors.lightGrey,
           validator: widget.validator,
-          keyboardType: TextInputType.text  ,
+          keyboardType: TextInputType.text,
           obscureText: secure,
           obscuringCharacter: '*',
           decoration: InputDecoration(
