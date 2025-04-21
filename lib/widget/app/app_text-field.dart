@@ -14,6 +14,8 @@ class AppTextField extends StatefulWidget {
     this.secure = false,
     this.leading,
     this.keyboardType,
+    this.height,
+    this.controller,
 
 
 
@@ -25,7 +27,9 @@ class AppTextField extends StatefulWidget {
   final bool secure;
   final Widget? leading;
   final double? width;
+  final double? height;
   final keyboardType;
+  final TextEditingController? controller;
 
 
 
@@ -62,6 +66,7 @@ class _AppTextFieldState extends State<AppTextField> {
 
         ],
         TextFormField(
+          controller: widget.controller,
           cursorColor: AppColors.lightGrey,
           validator: widget.validator,
           keyboardType: TextInputType.text,

@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 5),
       vsync: this,
     );
 
@@ -36,42 +36,45 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     // Start the animation
     _controller.forward();
+
+  _controller.addStatusListener((status) {
+  if (status == AnimationStatus.completed) {
+  Future.delayed(Duration(milliseconds: 300), () {
+  RouteUtils.pushReplacement(context, WelcomeScreen());
+  });
   }
+  });
+}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-         RouteUtils.push(context, WelcomeScreen());
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [AppColors.primary, AppColors.grey],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [AppColors.primary, AppColors.grey],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                FadeTransition(
-                  opacity: _fadeAnimation,
-                  child: SlideTransition(
-                    position: _slideAnimation,
-                    child: Image.asset(
-                        'logo1'.assetPNG,
-                        width: 150,
-                        height: 150), // Replace with your logo asset
-                  ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              FadeTransition(
+                opacity: _fadeAnimation,
+                child: SlideTransition(
+                  position: _slideAnimation,
+                  child: Image.asset(
+                      'logo1'.assetPNG,
+                      width: 150,
+                      height: 150), // Replace with your logo asset
                 ),
-                SizedBox(height: 20),
-                _animatedText(),
-              ],
-            ),
+              ),
+              SizedBox(height: 20),
+              _animatedText(),
+            ],
           ),
         ),
       ),

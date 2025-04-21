@@ -2,7 +2,7 @@ import 'package:b2w/core/extentions/num.dart';
 import 'package:b2w/core/extentions/string.dart';
 import 'package:b2w/core/route_Units/route_units.dart';
 import 'package:b2w/core/utils/colors.dart';
-import 'package:b2w/views/user/user_profile/personal_info_screen.dart';
+import 'package:b2w/views/user/user_profile_setup//profile_setup_card.dart';
 import 'package:b2w/widget/app/app_buttons.dart';
 import 'package:b2w/widget/app/app_text.dart';
 import 'package:flutter/material.dart';
@@ -50,112 +50,117 @@ class _SelectScreenState extends State<SelectScreen> {
               SizedBox(
                 height:20.h ,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Expanded(
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                             isSelected = true;
+                          });
+                        },
+                  child: Container(
+                    width: 118.w,
+                    height: 118.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.r),
+                      border: Border.all(
+                        color: isSelected ? AppColors.primary : Colors.transparent,
 
-                children: [
-                 Padding(
-                   padding: const EdgeInsets.all(20.0),
-                   child: Expanded(
-                     child: Expanded(
-                       child: Row(
-                         children: [
-                           GestureDetector(
-                             onTap: () {
-                               setState(() {
-                                  isSelected = true;
-                               });
-                             },
-                             child: Container(
-                                          decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(30.r),
-                               ),
-                       
-                               child: ColorFiltered(
-                                 colorFilter: ColorFilter.mode(
-                                   isSelected? AppColors.primary : AppColors.grey,
-                                   BlendMode.softLight,
-                                 ),
-                                 child: Image.asset(
-                                   'employee'.assetPNG, // Replace with your image path
-                                 ),
-                               ),
-                               width: 118.w,
-                               height: 118.h,
-                             ),
-                           ),
-                       
-                           SizedBox(
-                             width: 20.w,
-                           ),
-                       
-                           GestureDetector(
-                             onTap: () {
-                               setState(() {
-                                 isSelected = false;
-                               });
-                             },
-                             child: Expanded(
-                               child: Container(
-                                 decoration: BoxDecoration(
-                                   borderRadius: BorderRadius.circular(30.r),
-                                 ),
-                       
-                                 child: ColorFiltered(
-                                   colorFilter: ColorFilter.mode(
-                                     isSelected? AppColors.grey : AppColors.primary,
-                                     BlendMode.softLight,
-                                   ),
-                                   child: Image.asset(
-                                     'company'.assetPNG, // Replace with your image path
-                                   ),
-                                 ),
-                                 width: 118.w,
-                                 height: 118.h,
-                               ),
-                             ),
-                           ),
-                         ],
-                       ),
-                     ),
-                   ),
-
-                 ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-
-                      children: [
-                        AppText(title: 'Employee',
-                          color: AppColors.dark,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Lato',),
-                        SizedBox(
-                          width: 80.w,
-                        ),
-                        AppText(title: 'Company',
-                          color: AppColors.dark,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Lato',),
-                      ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 32.h,
-                  ),
-                  AppButton(title: 'Next',
-                  onTap: (){
-                    setState(() {
-                      isSelected ?RouteUtils.push(context, PersonalInfoScreen()):RouteUtils.push(context, CompanyInfoScreen());
-                    });
-                  },)
 
-                ],
-              )
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30.r),
+                      child: ColorFiltered(
+                        colorFilter: ColorFilter.mode(
+                          isSelected? AppColors.primary : AppColors.grey,
+                          BlendMode.saturation,
+                        ),
+                            child: Image.asset(
+                              'employee'.assetPNG, // Replace with your image path
+                            ),
+                          ),
+
+                        ),
+                      ),
+                      ),
+
+                      SizedBox(
+                        width: 20.w,
+                      ),
+
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSelected = false;
+                          });
+                        },
+                        child: Container(
+                          width: 118.w,
+                          height: 118.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.r),
+                            border: Border.all(
+                              color: isSelected ? AppColors.primary : Colors.transparent,
+
+                            ),
+                          ),
+
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(30.r),
+                            child: ColorFiltered(
+                              colorFilter: ColorFilter.mode(
+                                isSelected? AppColors.grey : AppColors.primary,
+                                BlendMode.saturation,
+                              ),
+                            child: Image.asset(
+                              'company'.assetPNG, // Replace with your image path
+                            ),
+                          ),
+
+                        ),
+                      ),
+                      ),
+                    ],
+                  ),
+                ),
+
+              ),
+
+               Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 40),
+                 child: Row(
+                   mainAxisAlignment: MainAxisAlignment.start,
+
+                   children: [
+                     AppText(title: 'Employee',
+                       color: AppColors.dark,
+                       fontSize: 17,
+                       fontWeight: FontWeight.w700,
+                       fontFamily: 'Lato',),
+                     SizedBox(
+                       width: 80.w,
+                     ),
+                     AppText(title: 'Company',
+                       color: AppColors.dark,
+                       fontSize: 17,
+                       fontWeight: FontWeight.w700,
+                       fontFamily: 'Lato',),
+                   ],
+                 ),
+               ),
+               SizedBox(
+                 height: 32.h,
+               ),
+               AppButton(title: 'Next',
+               onTap: (){
+                 setState(() {
+                   isSelected ?RouteUtils.push(context, ProfileSetup()):RouteUtils.push(context, CompanyInfoScreen());
+                 });
+               },)
 
             ],
           ),
