@@ -1,6 +1,6 @@
 import 'package:b2w/core/extentions/string.dart';
 import 'package:b2w/core/route_Units/route_units.dart';
-import 'package:b2w/views/user/home_page/applying_screen.dart';
+import 'package:b2w/views/user/job_screen/applying_screen.dart';
 import 'package:b2w/widget/app/job_info.dart';
 import 'package:b2w/widget/app/app_buttons.dart';
 import 'package:b2w/widget/app/app_text.dart';

@@ -5,6 +5,7 @@ import 'package:b2w/views/forgort_password/forget_pass_screen.dart';
 import 'package:b2w/views/select_screen/select-screen.dart';
 import 'package:b2w/views/sign_up/sign_up_screen.dart';
 import 'package:b2w/views/user/home_page/home_page_screen.dart';
+import 'package:b2w/views/user/nav_bar/nav_bar.dart';
 import 'package:b2w/widget/app/app_buttons.dart';
 import 'package:b2w/widget/app/app_text-field.dart';
 import 'package:b2w/widget/app/app_text.dart';
@@ -127,7 +128,7 @@ class LoginScreen extends StatelessWidget {
                       AppButton(title: 'Log in',
                           onTap: (){
                         formKey.currentState!.validate();
-                        RouteUtils.push(context, HomePageScreen());
+                        RouteUtils.push(context, NavBarScreen());
 
                           },
                       ),

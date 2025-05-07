@@ -89,15 +89,15 @@ class _JobCardState extends State<JobCard> {
                 ],
               ),
               InkWell(
-                onTap: () {
-                  setState(() {
-                    isBookmarked = !isBookmarked; // toggle the icon
-                  });
-                },
-                child: Icon(
-                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                  color: isBookmarked ? AppColors.primary : AppColors.lightPrimary,
-                )
+                  onTap: () {
+                    setState(() {
+                      isBookmarked = !isBookmarked; // toggle the icon
+                    });
+                  },
+                  child: Icon(
+                    isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                    color: isBookmarked ? AppColors.primary : AppColors.lightPrimary,
+                  )
               ),],
           ),
 

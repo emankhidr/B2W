@@ -91,9 +91,8 @@ class SearchJob2 extends StatelessWidget {
                 tag2: 'Remotely',
                 salary: '\$50-70K',
                 location: 'New York , NY',
-                onMoreDetails: (){
-
-                },),
+                onMoreDetails: (){},
+               ),
               SizedBox(
                 height: 4.h,
               ),
@@ -106,9 +105,8 @@ class SearchJob2 extends StatelessWidget {
                 tag2: 'Remotely',
                 salary: '\$50-70K',
                 location: 'New York , NY',
-                onMoreDetails: (){
-
-                },),
+                onMoreDetails: (){},
+               ),
               SizedBox(
                 height: 4.h,
               ),
@@ -121,9 +119,8 @@ class SearchJob2 extends StatelessWidget {
                 tag2: 'Remotely',
                 salary: '\$50-70K',
                 location: 'New York , NY',
-                onMoreDetails: (){
-
-                },),
+                onMoreDetails: (){},
+              ),
               SizedBox(
                 height: 4.h,
               ),

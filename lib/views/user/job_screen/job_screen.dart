@@ -82,9 +82,7 @@ class JobScreen extends StatelessWidget {
                   tag2: 'Remotely',
                   salary: '\$50-70K',
                   location: 'New York , NY',
-              onMoreDetails: (){
-
-              },),
+             ),
               SizedBox(
                 height: 4.h,
               ),
@@ -97,9 +95,7 @@ class JobScreen extends StatelessWidget {
                 tag2: 'In-office',
                 salary: '\$40-50K',
                 location: 'Los Angeles\n CA',
-                onMoreDetails: (){
-
-                },),
+               ),
               
             ],
           ),

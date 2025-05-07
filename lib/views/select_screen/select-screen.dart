@@ -2,13 +2,13 @@ import 'package:b2w/core/extentions/num.dart';
 import 'package:b2w/core/extentions/string.dart';
 import 'package:b2w/core/route_Units/route_units.dart';
 import 'package:b2w/core/utils/colors.dart';
+import 'package:b2w/features/company_profile/presentation/pages/company_profile.dart';
 import 'package:b2w/views/user/user_profile_setup//profile_setup_card.dart';
 import 'package:b2w/widget/app/app_buttons.dart';
 import 'package:b2w/widget/app/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../company/company_profile/company_info_screen.dart';
 
 class SelectScreen extends StatefulWidget {
   const SelectScreen({super.key});
@@ -158,7 +158,7 @@ class _SelectScreenState extends State<SelectScreen> {
                AppButton(title: 'Next',
                onTap: (){
                  setState(() {
-                   isSelected ?RouteUtils.push(context, ProfileSetup()):RouteUtils.push(context, CompanyInfoScreen());
+                   isSelected ?RouteUtils.push(context, ProfileSetup()):RouteUtils.push(context, CompanyProfile());
                  });
                },)
 
