@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import '../../../../../../core/utilis/sizes.dart';
+
 import '../search_tabs.dart';
 
 Widget alluser({required List<Map<String, String>> allUser}) {

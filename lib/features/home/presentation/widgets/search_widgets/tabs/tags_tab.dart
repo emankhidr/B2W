@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../../../core/utilis/sizes.dart';
+import '../../../../../../core/utils/sizes.dart';
 import '../search_tabs.dart';
 
 Widget tagsTab({required List<Map<String, String>> tags}) {

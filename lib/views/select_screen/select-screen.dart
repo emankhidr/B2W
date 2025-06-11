@@ -2,6 +2,7 @@ import 'package:b2w/core/extentions/num.dart';
 import 'package:b2w/core/extentions/string.dart';
 import 'package:b2w/core/route_Units/route_units.dart';
 import 'package:b2w/core/utils/colors.dart';
+import 'package:b2w/features/company_profile/accessabilty_workplace.dart';
 import 'package:b2w/features/company_profile/presentation/pages/company_profile.dart';
 import 'package:b2w/views/user/user_profile_setup//profile_setup_card.dart';
 import 'package:b2w/widget/app/app_buttons.dart';
@@ -158,7 +159,7 @@ class _SelectScreenState extends State<SelectScreen> {
                AppButton(title: 'Next',
                onTap: (){
                  setState(() {
-                   isSelected ?RouteUtils.push(context, ProfileSetup()):RouteUtils.push(context, CompanyProfile());
+                   isSelected ?RouteUtils.push(context, ProfileSetup()):RouteUtils.push(context, AccessibilityStep());
                  });
                },)
 
