@@ -2,57 +2,66 @@ import 'package:b2w/core/extentions/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:intl/intl.dart';
+
 import '../../../core/utils/colors.dart';
 
-// MessageModel class definition
-class MessageModel {
-  final bool isUser;
-  final String message;
-  final DateTime time;
 
-  MessageModel({
-    required this.isUser,
-    required this.message,
-    required this.time,
-  });
-}
-
+const String apiKey = 'AIzaSyD-GqAOJ0TuoaukqZ3frSvjUvdthm56tRs';
 class ChatbotItself extends StatefulWidget {
   const ChatbotItself({super.key});
 
   @override
-  State<ChatbotItself> createState() => _ChatbotItselfState();
+  State<ChatbotItself> createState() => _ChatbotItselfState(
+  );
 }
 
 class _ChatbotItselfState extends State<ChatbotItself> {
-  static const apiKey = 'AIzaSyBfpVce_FkYcMigTUVx97BfDSSOJwYAzzM';
-  final model = GenerativeModel(model: 'gemini-pro-vision', apiKey: apiKey);
 
-  final List<MessageModel> chat = [];
-  TextEditingController messageController = TextEditingController();
 
-  Future<void> sendMessage() async {
-    final message = messageController.text.trim();
-    if (message.isEmpty) return;
+ late final GenerativeModel model;
+ late final ChatSession chat ;
+ final ScrollController scrollController = ScrollController();
+ final TextEditingController textController = TextEditingController();
+ final List< ChatMessages > messages = [];
+ @override
+  void initState() {
 
-    setState(() {
-      messageController.clear();
-      chat.add(MessageModel(isUser: true, message: message, time: DateTime.now()));
-    });
-
-    final response = await model.generateContent([Content.text(message)]);
-    final botReply = response.text ?? "I didn't understand, please try again.";
-
-    setState(() {
-      chat.add(MessageModel(isUser: false, message: botReply, time: DateTime.now()));
-    });
+    super.initState();
+    model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: apiKey);
+    chat = model.startChat();
   }
+  void scrollDown(){
+   WidgetsBinding.instance.addPostFrameCallback((_)=> scrollController
+       .animateTo(scrollController.position.maxScrollExtent, duration: Duration(milliseconds: 750), curve: Curves.easeInOutCirc));
+}
 
+   Future <void> sendChatMessage(String message) async{
+   setState(() {
+     messages.add(ChatMessages(text: message, isUser: true));
+
+   });
+   try{
+     final response = await chat.sendMessage(Content.text(message));
+     final text = response.text;
+     setState(() {
+       messages.add(ChatMessages(text: text!, isUser : false));
+       scrollDown();
+     });
+
+   }catch(e){
+     setState(() {
+       messages.add(ChatMessages(text: 'Error occured ', isUser: false));
+     });
+
+   }finally {
+     textController.clear();
+   }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         leading: IconButton(
           icon: Padding(
@@ -101,103 +110,95 @@ class _ChatbotItselfState extends State<ChatbotItself> {
         elevation: 0,
         toolbarHeight: 100,
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: chat.length,
-              itemBuilder: (context, index) {
-                final message = chat[index];
-                return userPrompt(
-                  isUser: message.isUser,
-                  message: message.message,
-                  date: DateFormat('hh:mm a').format(message.time),
-                );
-              },
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 20,
-                  child: TextField(
-                    controller: messageController,
-                    style: TextStyle(
-                        color: AppColors.inputText,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400),
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.r),
-                        ),
-                        hintText: 'Type here...'),
-                  ),
-                ),
-                Spacer(),
-                GestureDetector(
-                  onTap: sendMessage,
-                  child: CircleAvatar(
-                    radius: 25,
-                    backgroundColor: AppColors.primary,
-                    child: Icon(
-                      Icons.send,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 14),
+        child: Column(
+
+          children: [
+
+            Expanded(child: ListView.builder(
+              controller: scrollController,
+              itemCount: messages.length,
+              itemBuilder: (context,index){
+              return ChatBubble(messages: messages[index]);
+
+            },)),
+            Padding(padding: EdgeInsets.all(20),child:
+              Row(
+                children: [
+                  Expanded(child: Container(
+                    width: 313,
+                    height: 40,
+                    decoration: BoxDecoration(
                       color: AppColors.white,
-                      size: 25,
+                      borderRadius: BorderRadius.circular(15),
                     ),
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
+                    child: TextField(
+                      controller: textController,
+                      decoration: InputDecoration(
+                        hintText: 'type here...',
+
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+
+                        )
+                      ),
+                    ),
+                  )),
+                  IconButton(onPressed: ()=> sendChatMessage(textController.text), icon: Icon(Icons.send
+                  ,color: AppColors.primary,size: 25,))
+
+                ],
+              ),)
+          ],
+        ),
       ),
     );
   }
 
-  Container userPrompt({
-    required bool isUser,
-    required String message,
-    required String date,
-  }) {
+}
+class ChatMessages {
+  final String text;
+  final bool isUser;
+  ChatMessages({required this.text, required this.isUser});
+
+
+}
+class ChatBubble extends StatelessWidget {
+  final ChatMessages messages;
+
+  const ChatBubble({super.key, required this.messages});
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(15),
-      margin: EdgeInsets.symmetric(vertical: 15)
-          .copyWith(left: isUser ? 15 : 80, right: isUser ? 80 : 15),
-      decoration: BoxDecoration(
-        color: isUser ? AppColors.white : AppColors.grey,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: AppColors.inputText,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            message,
-            style: TextStyle(
-                color: AppColors.inputText,
-                fontSize: 12,
-                fontWeight: FontWeight.w400),
+
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+        alignment: messages.isUser ? Alignment.centerRight:Alignment.centerLeft,
+        child: Container(
+          width: 284,
+
+          decoration: BoxDecoration(
+              color: messages.isUser ?AppColors.white: AppColors.lightGrey,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+                bottomRight:messages.isUser? Radius.circular(0):Radius.circular(20),
+                bottomLeft: messages.isUser? Radius.circular(20):Radius.circular(0),
+
+              )
           ),
-          SizedBox(height: 4.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                date,
-                style: TextStyle(
-                    color: AppColors.inputText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400),
-              ),
-            ],
-          )
-        ],
-      ),
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width /1.5,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(messages.text,style: TextStyle(
+              color: AppColors.inputText,fontSize: 14,
+              fontWeight: FontWeight.w400
+            ),),
+          ),
+        ),
     );
   }
 }
