@@ -1,4 +1,5 @@
 
+import 'package:b2w/core/utils/colors.dart';
 import 'package:b2w/features/home/presentation/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset("assets/images/Group 16.png"),
+                  Image.asset("assets/images/logo 2.png",width: 50,height: 50,),
                   Row(
                     children: [
                       GestureDetector(
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                               MaterialPageRoute(
                                 builder: (context) => CompanyProfile(),
                               )),
-                          child: Image.asset("assets/images/Ellipse 13.png")),
+                          child: Image.asset("assets/images/Ellipse 13.png",)),
                       Stack(
                         clipBehavior: Clip.none,
                         children: [
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                             },
                             icon: Icon(
                               Icons.notifications_none_outlined,
-                              color: Color(0xff1E1E1E),
+                              color: AppColors.primary,
                               size: 30,
                             ),
                           ),
@@ -84,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                             child: Container(
                               padding: EdgeInsets.all(4),
                               decoration: BoxDecoration(
-                                color: Colors.purple,
+                                color: AppColors.primary,
                                 shape: BoxShape.circle,
                               ),
                               constraints: BoxConstraints(

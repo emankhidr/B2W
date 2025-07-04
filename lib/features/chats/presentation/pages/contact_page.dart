@@ -5,9 +5,9 @@ import '../../../../core/styles/text_styles.dart';
 
 class ContactsPage extends StatelessWidget {
   final List<Map<String, String>> contacts = [
-    {"name": "Ahmed Ali", "image": "assets/images/chat img.png"},
-    {"name": "Mona Samir", "image": "assets/images/chat.png"},
-    {"name": "Khaled Hassan", "image": "assets/images/person img.png"},
+    {"name": "Ahmed Ali", "image": "assets/image/chat img.png"},
+    {"name": "Mona Samir", "image": "assets/image/chat.png"},
+    {"name": "Khaled Hassan", "image": "assets/image/person img.png"},
   ];
 
   @override

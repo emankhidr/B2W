@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-   import '../../../company_profile/presentation/pages/settings_page.dart';
+   import '../../../../core/utils/colors.dart';
+import '../../../company_profile/presentation/pages/settings_page.dart';
 import '../widgets/user_profile_widgets/achievement_tab.dart';
 import '../widgets/user_profile_widgets/post_tab.dart';
 import '../widgets/user_profile_widgets/profissional_info_tab.dart';
@@ -20,8 +21,8 @@ class UserProfile extends StatelessWidget {
             customStackImage(
 
                 backgroundImage:
-                    'assets/images/WhatsApp Image 2025-03-04 at 5.47.31 AM.jpeg',
-                profileImage: 'assets/images/Ellipse 189(4).png',
+                    'assets/image/WhatsApp Image 2025-03-04 at 5.47.31 AM.jpeg',
+                profileImage: 'assets/image/Ellipse 189(4).png',
                 name: 'Alaa Mohamed',
                 jobTitle: 'UI/UX Designer',
                 bio:
@@ -32,8 +33,8 @@ class UserProfile extends StatelessWidget {
             SizedBox(height: 260),
 
              TabBar(
-              indicatorColor: Colors.purple,
-              labelColor: Colors.purple,
+              indicatorColor: AppColors.primary,
+              labelColor: AppColors.primary,
               unselectedLabelColor: Colors.grey,
               labelStyle: TextStyle(fontWeight: FontWeight.bold),
               tabs: [

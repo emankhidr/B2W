@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../features/home/presentation/pages/home_page.dart';
+import '../../core/utils/colors.dart';
 
 
 class AddEmployeesStep extends StatefulWidget {
@@ -86,7 +87,7 @@ class _AddEmployeesStepState extends State<AddEmployeesStep> {
                   decoration: InputDecoration(
                     hintText: "Search",
                     hintStyle: const TextStyle(color: Colors.grey),
-                    prefixIcon: const Icon(Icons.search, color: Colors.purple),
+                    prefixIcon: const Icon(Icons.search, color: AppColors.primary),
                     suffixIcon: isSearching
                         ? IconButton(
                       icon: const Icon(Icons.clear, color: Colors.grey),
@@ -115,7 +116,7 @@ class _AddEmployeesStepState extends State<AddEmployeesStep> {
                       title: Text(employee["name"]!, style: const TextStyle(fontWeight: FontWeight.w600)),
                       subtitle: Text(employee["role"]!, style: const TextStyle(color: Colors.grey)),
                       trailing: IconButton(
-                        icon: Icon(isSelected ? Icons.close : Icons.add, color: Colors.deepPurple),
+                        icon: Icon(isSelected ? Icons.close : Icons.add, color: AppColors.primary),
                         onPressed: () {
                           setState(() {
                             if (isSelected) {
@@ -137,7 +138,7 @@ class _AddEmployeesStepState extends State<AddEmployeesStep> {
                     // Final submission or navigation
 Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),)) ;                 },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:  Color(0xFF7F00FF),
+                    backgroundColor:  AppColors.primary,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),

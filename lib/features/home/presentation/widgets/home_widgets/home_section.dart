@@ -1,3 +1,4 @@
+import 'package:b2w/core/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -48,7 +49,7 @@ Widget containerHome({required String companyName,required String time,required 
             Container(
               padding: EdgeInsets.all(6),
               decoration: BoxDecoration(
-                color: Colors.purple,
+                color: AppColors.primary,
                 shape: BoxShape.circle,
               ),
               child: Text(
@@ -74,8 +75,8 @@ Widget containerHome({required String companyName,required String time,required 
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.transparent,
-                  Colors.purple
+                 AppColors.white,
+                  AppColors.primary
                 ], // عكس التدرج
               ),
             ),

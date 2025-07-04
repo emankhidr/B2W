@@ -1,3 +1,4 @@
+import 'package:b2w/core/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ Widget profissionalInfoWidget() {
           icon: Icons.cast_for_education,
           title: "Education",
           child: ListTile(
-            leading: Image.asset("assets/images/images 1.png"),
+            leading: Image.asset("assets/image/images 1.png"),
             title: Text("Bachelor of Computer Science"),
             subtitle: Text("Mansoura University"),
           ), pageName: '',
@@ -38,14 +39,14 @@ Widget profissionalInfoWidget() {
                 title: "Bright Media Solutions",
                 subtitle: "UI/UX Designer\nFebruary 2023 - Present",
                 index: 2,
-                imagePath: 'assets/images/c.png',
+                imagePath: 'assets/image/c.png',
                 isLast: false,
               ),
               buildExperienceTile(
                 title: "Digital Creative Agency",
                 subtitle: "UI Designer\nJuly 2022 - January 2023",
                 index: 1,
-                imagePath: 'assets/images/c.png',
+                imagePath: 'assets/image/c.png',
                 isLast: true,
               ),
             ],
@@ -98,9 +99,9 @@ Widget profissionalInfoWidget() {
           child: Column(
             children: [
               buildCertificateTile("Google UX Design Certificate", "Coursera",
-                  "assets/images/udemy.png"),
+                  "assets/image/udemy.png"),
               buildCertificateTile(
-                  "Advanced Figma Masterclass", "Udemy", "assets/images/c.png"),
+                  "Advanced Figma Masterclass", "Udemy", "assets/image/c.png"),
             ],
           ), pageName: '',
         ),
@@ -110,7 +111,7 @@ Widget profissionalInfoWidget() {
           title: "Resume/CV",
           child: ListTile(
             leading: Icon(Icons.picture_as_pdf, color: Colors.red),
-            title: Text("My cv.pdf", style: TextStyle(color: Colors.purple)),
+            title: Text("My cv.pdf", style: TextStyle(color: AppColors.primary)),
 
           ), pageName: '',
         ),
@@ -137,7 +138,7 @@ Widget buildSection({
       children: [
         Row(
           children: [
-            Icon(icon, color: Colors.purple),
+            Icon(icon, color: AppColors.primary),
             SizedBox(width: 8),
             Text(
               title,
@@ -145,7 +146,7 @@ Widget buildSection({
             ),
             Spacer(),
             if (  pageName == "COMPANY")
-              Icon(Icons.edit, color: Colors.purple), // أيقونة إضافية
+              Icon(Icons.edit, color: AppColors.primary), // أيقونة إضافية
           ],
         ),
         SizedBox(height: 10),
@@ -171,7 +172,7 @@ Widget buildExperienceTile({
         children: [
           CircleAvatar(
             radius: 14,
-            backgroundColor: Colors.purple,
+            backgroundColor: AppColors.primary,
             child: Text(
               index.toString(),
               style: TextStyle(

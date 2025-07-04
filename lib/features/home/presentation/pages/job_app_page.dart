@@ -1,5 +1,6 @@
  import 'package:flutter/material.dart';
 
+import '../../../../core/utils/colors.dart';
 import 'employee_app_page.dart';
 
 class JobApplicationsScreen extends StatefulWidget {
@@ -9,9 +10,9 @@ class JobApplicationsScreen extends StatefulWidget {
 
 class _JobApplicationsScreenState extends State<JobApplicationsScreen> {
   final List<Map<String, String>> applicants = [
-    {'name': 'Alaa Mohamed', 'role': 'UI/UX designer', 'image': 'assets/images/Ellipse 189(1).png', 'email': 'alaa@gmail.com', 'cv': 'my_cv.pdf'},
-    {'name': 'Jane Cooper', 'role': 'UI/UX designer', 'image': 'assets/images/Ellipse 189(2).png', 'email': 'jane@gmail.com', 'cv': 'jane_cv.pdf'},
-    {'name': 'Cody Fisher', 'role': 'UI/UX designer', 'image': 'assets/images/Ellipse 189(3).png', 'email': 'cody@gmail.com', 'cv': 'cody_cv.pdf'},
+    {'name': 'Alaa Mohamed', 'role': 'UI/UX designer', 'image': 'assets/image/Ellipse 189(1).png', 'email': 'alaa@gmail.com', 'cv': 'my_cv.pdf'},
+    {'name': 'Jane Cooper', 'role': 'UI/UX designer', 'image': 'assets/image/Ellipse 189(2).png', 'email': 'jane@gmail.com', 'cv': 'jane_cv.pdf'},
+    {'name': 'Cody Fisher', 'role': 'UI/UX designer', 'image': 'assets/image/Ellipse 189(3).png', 'email': 'cody@gmail.com', 'cv': 'cody_cv.pdf'},
   ];
 
   @override
@@ -33,7 +34,7 @@ class _JobApplicationsScreenState extends State<JobApplicationsScreen> {
               style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
             ),
             CircleAvatar(
-              backgroundColor: Colors.purple,
+              backgroundColor: AppColors.primary,
               radius: 12,
               child: Text(
                 applicants.length.toString(),

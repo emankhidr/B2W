@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/colors.dart';
+
 Widget buildDetailField(
     {required String hintText, required TextEditingController controller}) {
   return Container(
@@ -40,12 +42,12 @@ Widget buildCVField({required String cvName,required VoidCallback pickCVFile }) 
             Text(
               cvName ?? "اختر ملف",
               style: TextStyle(
-                color: Colors.purple,
+                color: AppColors.primary,
                 decoration: TextDecoration.underline,
               ),
             ),
 
-            Icon(Icons.download, color: Colors.purple),
+            Icon(Icons.download, color: AppColors.primary),
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:b2w/features/upload_jobs/presentation/pages/add_post_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../core/utils/colors.dart';
 import 'chats/presentation/pages/conversation_page.dart';
 import 'home/presentation/pages/home_page.dart';
 
@@ -76,13 +77,13 @@ class _HomeScreenState extends State<HomeScreen> {
               FloatingActionButton(
                 heroTag: null,
                 onPressed: () => _onTabSelected(1),
-                backgroundColor: Colors.purple,
+                backgroundColor:AppColors.primary,
                 shape: CircleBorder(),
                 elevation: 12.0,
                 child: Icon(Icons.add, color: Colors.white, size: 30),
               ),
               SizedBox(height: 4), // مسافة بين الزر والنص
-              Text("Post", style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold)),
+              Text("Post", style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold)),
             ],
           ),
         ],
@@ -101,8 +102,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, color: isActive ? Colors.purple : Colors.grey),
-          Text(label, style: TextStyle(color: isActive ? Colors.purple : Colors.grey)),
+          Icon(icon, color: isActive ? AppColors.primary : Colors.grey),
+          Text(label, style: TextStyle(color: isActive ?AppColors.primary: Colors.grey)),
         ],
       ),
     );

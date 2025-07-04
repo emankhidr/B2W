@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/colors.dart';
 import '../../../upload_jobs/presentation/widgets/custom_tabs_widget.dart';
 import '../widgets/search_widgets/build_search_result.dart';
 import '../widgets/search_widgets/buildrecentusers.dart';
@@ -19,17 +20,17 @@ class _SearchScreenState extends State<SearchScreen>
     {
       'name': 'Murad Mohamed',
       'role': 'Product manager',
-      'image': 'assets/images/Ellipse 189(1).png'
+      'image': 'assets/image/Ellipse 189(1).png'
     },
     {
       'name': 'Albert Flores',
       'role': 'President of Sales',
-      'image': 'assets/images/Ellipse 189(2).png'
+      'image': 'assets/image/Ellipse 189(2).png'
     },
     {
       'name': 'Darrell Steward',
       'role': 'Marketing Coordinator',
-      'image': 'assets/images/Ellipse 189(3).png'
+      'image': 'assets/image/Ellipse 189(3).png'
     },
   ];
 
@@ -42,12 +43,12 @@ class _SearchScreenState extends State<SearchScreen>
     {
       'name': 'Elsie Cronin',
       'role': 'Product manager',
-      'image': 'assets/images/Ellipse 189(1).png'
+      'image': 'assets/image/Ellipse 189(1).png'
     },
     {
       'name': 'Elsir kronin',
       'role': 'President of Sales',
-      'image': 'assets/images/Ellipse 189(3).png'
+      'image': 'assets/image/Ellipse 189(3).png'
     },
   ];
 
@@ -55,26 +56,26 @@ class _SearchScreenState extends State<SearchScreen>
     {
       'name': 'Murad',
       'role': 'Media agency',
-      'image': 'assets/images/Ellipse 189(2).png'
+      'image': 'assets/image/Ellipse 189(2).png'
     },
     {
       'name': 'Elsie Cronin',
       'role': 'Media agency',
-      'image': 'assets/images/Ellipse 189(3).png'
+      'image': 'assets/image/Ellipse 189(3).png'
     },
   ];
   final List<Map<String, String>> tags = [
     {
       'name': 'Elsie Cronin',
       'role': 'Media agency',
-      'image': 'assets/images/Ellipse 189(1).png'
+      'image': 'assets/image/Ellipse 189(1).png'
     },
   ];
   final List<Map<String, String>> allUsers = [
     {
       'name': 'Elsie Cronin',
       'role': 'Media agency',
-      'image': 'assets/images/Ellipse 189(2).png'
+      'image': 'assets/image/Ellipse 189(2).png'
     },
   ];
 
@@ -122,7 +123,7 @@ class _SearchScreenState extends State<SearchScreen>
             decoration: InputDecoration(
               hintText: "Search",
               hintStyle: TextStyle(color: Colors.grey),
-              prefixIcon: Icon(Icons.search, color: Colors.purple),
+              prefixIcon: Icon(Icons.search, color: AppColors.primary),
               suffixIcon: isSearching
                   ? IconButton(
                       icon: Icon(Icons.clear, color: Colors.grey),

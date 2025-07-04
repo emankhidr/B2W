@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/shared_widgets/custom_appbar_widget.dart';
 import '../../../../core/styles/colors.dart';
+import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/sizes.dart';
 import '../widgets/employee_app_widgets/custom_buttom.dart';
 import '../widgets/employee_app_widgets/txt_fields.dart';
@@ -72,7 +73,7 @@ spaceWidth(12),                  Column(
                       Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile(),));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xff7F00FF),
+                      backgroundColor: AppColors.primary,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),

@@ -1,3 +1,4 @@
+import 'package:b2w/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 Widget buildTimeLine({
@@ -14,7 +15,7 @@ Widget buildTimeLine({
           CircleAvatar(
             radius: 20,
             backgroundColor: Colors.purple.shade100,
-            child: Icon(icon, color: Colors.purple),
+            child: Icon(icon, color: AppColors.primary),
           ),
           if (!isLast) // <-- إخفاء الخط إذا كان العنصر الأخير
             Container(

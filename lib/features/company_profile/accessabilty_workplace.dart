@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/utils/colors.dart';
 import 'add_employee.dart';
 
 class AccessibilityStep extends StatefulWidget {
@@ -59,7 +60,7 @@ class _AccessibilityStepState extends State<AccessibilityStep> {
                       ),
                     ],
                   ),
-                  const Text("Skip", style: TextStyle(decoration: TextDecoration.underline, color: Colors.deepPurple, fontWeight: FontWeight.w500)),
+                  const Text("Skip", style: TextStyle(decoration: TextDecoration.underline, color: AppColors.primary, fontWeight: FontWeight.w500)),
                 ],
               ),
               const SizedBox(height: 24),
@@ -111,7 +112,7 @@ class _AccessibilityStepState extends State<AccessibilityStep> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:  Color(0xFF7F00FF),
+                    backgroundColor: AppColors.primary,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),

@@ -1,6 +1,7 @@
 
 import 'package:b2w/views/splash/splash_screen.dart';
 import 'package:b2w/views/user/home_page/chatbot_itself.dart';
+import 'package:b2w/views/user/home_page/chatbot_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/utils/colors.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        home:ChatbotItself(),
+        home: SplashScreen(),
         theme: ThemeData(
 
           fontFamily: 'Roboto'  ,

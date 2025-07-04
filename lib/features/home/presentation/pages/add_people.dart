@@ -1,4 +1,5 @@
 
+import 'package:b2w/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/shared_widgets/custom_appbar_widget.dart';
@@ -11,9 +12,9 @@ class AddPeopleScreen extends StatefulWidget {
 class _AddPeopleScreenState extends State<AddPeopleScreen> {
 
   List<Map<String, String>> allPeople = [
-    {"name": "Murad Mohamed", "title": "Product Manager", "image": "assets/images/Ellipse 189(2).png"},
-    {"name": "Murad Wael", "title": "Graphic Designer", "image": "assets/images/Ellipse 189(1).png"},
-    {"name": "Murad Ahmed", "title": "UI Designer", "image": "assets/images/Ellipse 189(3).png"},
+    {"name": "Murad Mohamed", "title": "Product Manager", "image": "assets/image/Ellipse 189(2).png"},
+    {"name": "Murad Wael", "title": "Graphic Designer", "image": "assets/image/Ellipse 189(1).png"},
+    {"name": "Murad Ahmed", "title": "UI Designer", "image": "assets/image/Ellipse 189(3).png"},
   ];
 
   List<Map<String, String>> filteredPeople = [];
@@ -49,10 +50,10 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
-                border: Border.all(color: Color(0xFF7F00FF).withOpacity(0.8), width: 1),
+                border: Border.all(color: AppColors.primary, width: 1),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xFF7F00FF).withOpacity(0.3),
+                    color: AppColors.primary,
                     blurRadius: 8,
                     spreadRadius: 0,
                     offset: Offset(0, 0),
@@ -84,7 +85,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                           color: Colors.grey[300],
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(Icons.close, size: 18, color: Colors.black),
+                        child: Icon(Icons.close, size: 18, color: AppColors.black),
                       ),
                     ),
                 ],
@@ -107,7 +108,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                     trailing: IconButton(
                       icon: Icon(
                         index == 0 ? Icons.close : Icons.add, // أول شخص يحتوي على X والبقية تحتوي على +
-                        color: Colors.purple,
+                        color: AppColors.primary,
                       ),
                       onPressed: () {},
                     ),

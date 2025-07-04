@@ -53,7 +53,7 @@ Widget buildTab({
 }
 
 enum fieldsType {
-  reqyuirment,
+  requirement,
   company,
   description,
 }

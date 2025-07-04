@@ -29,7 +29,7 @@ Widget postTabWidget(){
                   CircleAvatar(
                     radius: 25,
                     backgroundImage: NetworkImage(
-                        'assets/images/Ellipse 189(1).png'),
+                        'assets/image/Ellipse 189(1).png'),
                   ),
                   SizedBox(width: 10),
                   Expanded(
@@ -159,7 +159,7 @@ Widget postTabWidget(){
                ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
-                  "assets/images/post img 2.png", // استبدل بالصورة المطلوبة
+                  "assets/image/post img 2.png", // استبدل بالصورة المطلوبة
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),

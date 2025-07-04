@@ -1,4 +1,5 @@
- import 'package:flutter/cupertino.dart';
+ import 'package:b2w/core/utils/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -155,7 +156,7 @@ class _PostJobPageState extends State<PostJobPage> {
                         min: 10,
                         max: 70,
                         divisions: 6,
-                        activeColor: Colors.purple,
+                        activeColor: AppColors.primary,
                         inactiveColor: Colors.purple.shade100,
                         onChanged: (RangeValues values) {
                           setState(() {

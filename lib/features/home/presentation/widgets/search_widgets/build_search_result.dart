@@ -6,6 +6,8 @@ import 'package:b2w/features/home/presentation/widgets/search_widgets/tabs/tags_
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/colors.dart';
+
 Widget buildSearchResults({
   required TabController tabController,
   required List<Map<String, String>> accounts,
@@ -20,7 +22,7 @@ Widget buildSearchResults({
         labelColor: Colors.white,
         unselectedLabelColor: Colors.grey,
         indicator: BoxDecoration(
-          color: Colors.purple,
+          color: AppColors.primary,
           borderRadius: BorderRadius.circular(10),
         ),
         tabs: [

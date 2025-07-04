@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/styles/colors.dart';
 import '../../../../core/styles/text_styles.dart';
+import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/sizes.dart';
 import '../../data/models/job_details_model.dart';
 import '../widgets/custom_info_item_widget.dart';
@@ -38,7 +39,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen>
                 alignment: Alignment.center,
                 transform: Matrix4.identity()..scale(-1.0, 1.0),
                 child: Image.asset(
-                  "assets/images/Rectangle 1.png",
+                  "assets/image/Rectangle 1.png",
                   width: double.infinity,
                   fit: BoxFit.cover,
                   color: Color(0xffEADCF8),
@@ -80,7 +81,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen>
                         CircleAvatar(
                           radius: 20,
                           backgroundImage:
-                              AssetImage("assets/images/Ellipse 13.png"),
+                              AssetImage("assets/image/Ellipse 13.png"),
                         ),
 spaceWidth(8),                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +105,7 @@ spaceWidth(8),                        Column(
                     Row(
                       children: [
                         Icon(Icons.location_on, size: 16, color: Colors.grey),
-                        Text("Mansours"),
+                        Text("Mansoura"),
                       ],
                     ),
                   ],
@@ -140,7 +141,7 @@ spaceWidth(8),                        Column(
             labelColor: Colors.white,
             unselectedLabelColor: Colors.grey,
             indicator: BoxDecoration(
-              color: Colors.purple,
+              color: AppColors.primary,
               borderRadius: BorderRadius.circular(10),
             ),
             tabs: [
@@ -168,7 +169,7 @@ spaceWidth(8),                        Column(
                     tabTitle: 'Description',
                     enumData: fieldsType.description),
                 buildTab(
-                    enumData: fieldsType.reqyuirment,
+                    enumData: fieldsType.requirement,
                     text: '${widget.jobDetails.requirements}',
                     tabTitle: 'Requirement'),
                 buildTab(

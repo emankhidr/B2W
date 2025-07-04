@@ -1,4 +1,5 @@
 
+import 'package:b2w/core/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ Widget buildSearchTab({
                 height: 34,
                 width: 69,
                 decoration: BoxDecoration(
-                  color: Colors.purple,
+                  color:AppColors.primary,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(

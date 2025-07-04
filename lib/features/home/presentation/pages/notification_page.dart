@@ -2,6 +2,8 @@
 import 'package:b2w/features/home/presentation/pages/user_profile_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/colors.dart';
+
 class NotificationsPage extends StatefulWidget {
   @override
   State<NotificationsPage> createState() => _NotificationsPageState();
@@ -13,49 +15,49 @@ class _NotificationsPageState extends State<NotificationsPage> {
       "name": "Alaa Mohamed",
       "message": "applied for a Senior UX Designer job.",
       "time": "2 minutes ago",
-      "avatar": "assets/images/Ellipse 189(2).png",
+      "avatar": "assets/image/Ellipse 189(2).png",
       "isNew": true
     },
     {
       "name": "Jane Cooper",
       "message": "applied for a Senior UX Designer job.",
       "time": "10 minutes ago",
-      "avatar": "assets/images/Ellipse 189(1).png",
+      "avatar": "assets/image/Ellipse 189(1).png",
       "isNew": true
     },
     {
       "name": "Cody Fisher",
       "message": "applied for a Senior UX Designer job.",
       "time": "20 minutes ago",
-      "avatar": "assets/images/Ellipse 189(2).png",
+      "avatar": "assets/image/Ellipse 189(2).png",
       "isNew": false
     },
     {
       "name": "Murad Mohamed",
       "message": "Add review",
       "time": "40 minutes ago",
-      "avatar": "assets/images/Ellipse 189(3).png",
+      "avatar": "assets/image/Ellipse 189(3).png",
       "isNew": false
     },
     {
       "name": "Wade Warren",
       "message": "applied for a Joiner UI Designer job.",
       "time": "1 hour ago",
-      "avatar": "assets/images/Ellipse 189(2).png",
+      "avatar": "assets/image/Ellipse 189(2).png",
       "isNew": false
     },
     {
       "name": "Mariem Waleed",
       "message": "applied for a Joiner UI Designer job.",
       "time": "7:00 PM",
-      "avatar": "assets/images/Ellipse 189(1).png",
+      "avatar": "assets/image/Ellipse 189(1).png",
       "isNew": false
     },
     {
       "name": "Jane Cooper",
       "message": "applied for a Joiner UI Designer job.",
       "time": "1:00 PM",
-      "avatar": "assets/images/Ellipse 189(3).png",
+      "avatar": "assets/image/Ellipse 189(3).png",
       "isNew": false
     },
   ];
@@ -81,7 +83,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: Colors.purple,
+                color:AppColors.primary,
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Text(
@@ -165,7 +167,7 @@ class NotificationItem extends StatelessWidget {
         ),
         subtitle: Text(data["time"], style: TextStyle(color: Colors.grey, fontSize: 12)),
         trailing: data["isNew"]
-            ? Icon(Icons.circle, color: Colors.purple, size: 10)
+            ? Icon(Icons.circle, color: AppColors.primary, size: 10)
             : null,
       ),
     );

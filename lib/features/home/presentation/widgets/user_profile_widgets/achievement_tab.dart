@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/colors.dart';
 import 'build_project_card.dart';
 import 'build_time_line.dart';
 
@@ -21,7 +22,7 @@ Widget achievementWidget(){
                 onPressed: () {},
                 child: Text(
                   "Show all",
-                  style: TextStyle(color: Colors.purple, fontSize: 14),
+                  style: TextStyle(color: AppColors.primary, fontSize: 14),
                 )),
           ],
         ),
@@ -62,14 +63,14 @@ Widget achievementWidget(){
           child: Row(
             children: [
               buildProjectCard(
-                imagePath: "assets/images/Frame 192.png",
+                imagePath: "assets/image/Frame 192.png",
                 title: "Healthcare App Redesign",
                 description:
                 "Vel molestias consequuntur rerum laborum soluta corrupti.",
               ),
               const SizedBox(width: 5),
               buildProjectCard(
-                imagePath: "assets/images/Frame 192(1).png",
+                imagePath: "assets/image/Frame 192(1).png",
                 title: "Healthcare App Redesign",
                 description:
                 "Vel molestias consequuntur rerum laborum soluta corrupti.",
